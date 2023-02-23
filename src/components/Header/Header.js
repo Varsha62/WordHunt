@@ -30,21 +30,26 @@ const Header = ({ setCategory, category, word, setWord }) => {
                 <ThemeProvider theme={darkTheme}>
                     <TextField
                         className="search"
-                        label="search a word"
-                        label="Standard"
+                        placeholder='search a word'
                         value={ word}
                         onChange={(e) => setWord(e.target.value)}
-                        
-                        
+                        sx={{
+                            backgroundColor:'#D3D3D3',
+                            borderRadius: '9px'
+                        }}
                        
                     />
                     
                     <TextField
                         className="select"
                         select
-                        label="language"
                         value={category}
                         onChange={(e) => handleChange(e.target.value)}
+                        sx={{
+                            backgroundColor:'#D3D3D3',
+                            borderRadius: '9px'
+                        }}
+                       
                     >
                         {categories.map((option) => (
                             <MenuItem key={option.label} value={option.label}>{option.value}</MenuItem>
