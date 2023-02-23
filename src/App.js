@@ -14,6 +14,7 @@ function App() {
   const [word, setWord] = useState("");
   const [meanings, setMeanings] = useState([]);
   const [category , setCategory]=useState("en");
+  const [status, setStatus] = useState("");
 
   // const PurpleSwitch = withStyles({
   //   switchBase: {
@@ -35,11 +36,11 @@ function App() {
         `https://api.dictionaryapi.dev/api/v2/entries/${category}/${word}`
       );
       setMeanings(data.data);
+      setStatus("200")
     }catch(error) {
-      console.log(error);
+      setStatus("404")
     }
   };
-  console.log(meanings);
   useEffect(() =>{
     dictionaryApi();
 
@@ -63,7 +64,7 @@ function App() {
     setWord={setWord}
     />
     {meanings && (
-      <Definations word ={word} meanings={meanings} category={category}/>
+      <Definations word ={word} meanings={meanings} category={category} status={status}/>
     )}
  
     </Container>
